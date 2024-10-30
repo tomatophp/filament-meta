@@ -5,7 +5,12 @@
     "keywords": [
         "php",
         "laravel",
-        "template"
+        "meta",
+        "filamentphp",
+        "model",
+        "relation",
+        "relation manager",
+        "pluggable model"
     ],
     "license": "MIT",
     "autoload": {
@@ -48,7 +53,9 @@
     },
     "require": {
         "php": "^8.1|^8.2",
-        "tomatophp/console-helpers": "^1.1"
+        "tomatophp/console-helpers": "^1.1",
+        "filament/filament": "^3.2",
+        "genealabs/laravel-model-caching": "^11.0"
     },
     "require-dev": {
        "laravel/pint": "^1.18",
