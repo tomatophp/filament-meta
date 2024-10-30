@@ -1,0 +1,5 @@
+<?php
+
+use TomatoPHP\FilamentMeta\Tests\TestCase;
+
+uses(TestCase::class)->in(__DIR__);

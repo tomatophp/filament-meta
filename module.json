@@ -1,0 +1,29 @@
+{
+    "name": "FilamentMeta",
+    "alias": "filament-meta",
+    "description": {
+        "ar": "Convert any model on your app to pluggable model using Meta and get ready to use relation manager on FilamentPHP panel",
+        "en": "Convert any model on your app to pluggable model using Meta and get ready to use relation manager on FilamentPHP panel",
+        "gr": "Convert any model on your app to pluggable model using Meta and get ready to use relation manager on FilamentPHP panel",
+        "sp": "Convert any model on your app to pluggable model using Meta and get ready to use relation manager on FilamentPHP panel"
+    },
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "TomatoPHP\\FilamentMeta\\FilamentMetaServiceProvider"
+    ],
+    "files": [],
+    "title": {
+        "ar": "Filament meta",
+        "en": "Filament meta",
+        "gr": "Filament meta",
+        "sp": "Filament meta"
+    },
+    "color": "#cc1448",
+    "icon": "heroicon-c-users",
+    "placeholder": "https://raw.githubusercontent.com/tomatophp/filament-meta/master/art/screenshot.jpg",
+    "type": "plugin",
+    "version": "v1.0.0",
+    "github" : "https://github.com/tomatophp/filament-meta",
+    "docs" : "https://github.com/tomatophp/filament-meta"
+}
