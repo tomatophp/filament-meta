@@ -6,36 +6,24 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait HasMeta
 {
-    /**
-     * @return MorphMany
-     */
     public function modelMeta(): MorphMany
     {
-       return $this->morphMany('TomatoPHP\FilamentMeta\Models\Meta', 'model');
+        return $this->morphMany('TomatoPHP\FilamentMeta\Models\Meta', 'model');
     }
 
-
-    /**
-     * @param string $key
-     * @param mixed $value
-     * @return mixed
-     */
-    public function meta(string $key, mixed $value=null): mixed
+    public function meta(string $key, mixed $value = null): mixed
     {
-        if($value!==null){
-            if($value === 'null'){
+        if ($value !== null) {
+            if ($value === 'null') {
                 return $this->modelMeta()->updateOrCreate(['key' => $key], ['value' => null]);
-            }
-            else {
+            } else {
                 return $this->modelMeta()->updateOrCreate(['key' => $key], ['value' => $value]);
             }
-        }
-        else {
+        } else {
             $meta = $this->modelMeta()->where('key', $key)->first();
-            if($meta){
+            if ($meta) {
                 return $meta->value;
-            }
-            else {
+            } else {
                 return $this->modelMeta()->updateOrCreate(['key' => $key], ['value' => null]);
             }
         }

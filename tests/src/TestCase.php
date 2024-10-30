@@ -16,7 +16,6 @@ use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
 use TomatoPHP\FilamentMeta\FilamentMetaServiceProvider;
-use TomatoPHP\FilamentMeta\Tests\Models\User;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -43,11 +42,11 @@ abstract class TestCase extends BaseTestCase
     public function getEnvironmentSetUp($app): void
     {
         $app['config']->set('database.default', 'sqlite');
-        $app['config']->set('database.connections.sqlite.database', __DIR__ . '/../database/database.sqlite');
+        $app['config']->set('database.connections.sqlite.database', __DIR__.'/../database/database.sqlite');
 
         $app['config']->set('view.paths', [
             ...$app['config']->get('view.paths'),
-            __DIR__ . '/../resources/views',
+            __DIR__.'/../resources/views',
         ]);
     }
 }

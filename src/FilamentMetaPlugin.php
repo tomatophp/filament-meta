@@ -7,7 +7,6 @@ use Filament\Panel;
 
 class FilamentMetaPlugin implements Plugin
 {
-
     public function getId(): string
     {
         return 'filament-meta';

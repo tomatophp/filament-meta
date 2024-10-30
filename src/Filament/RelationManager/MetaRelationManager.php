@@ -2,12 +2,12 @@
 
 namespace TomatoPHP\FilamentMeta\Filament\RelationManager;
 
-use Filament\Forms\Form;
 use Filament\Forms;
+use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Tables;
 use Filament\Tables\Actions\CreateAction;
 use Filament\Tables\Table;
-use Filament\Tables;
 
 class MetaRelationManager extends RelationManager
 {
@@ -21,7 +21,7 @@ class MetaRelationManager extends RelationManager
                 ->required()
                 ->maxLength(255),
             Forms\Components\TextInput::make('value')
-                ->label(trans('filament-meta::messages.columns.value'))
+                ->label(trans('filament-meta::messages.columns.value')),
         ]);
     }
 
@@ -29,7 +29,7 @@ class MetaRelationManager extends RelationManager
     {
         return $table
             ->headerActions([
-                CreateAction::make()
+                CreateAction::make(),
             ])
             ->columns([
                 Tables\Columns\TextColumn::make('key')
@@ -37,10 +37,10 @@ class MetaRelationManager extends RelationManager
                     ->sortable(),
                 Tables\Columns\TextColumn::make('value')
                     ->label(trans('filament-meta::messages.columns.value'))
-                    ->view('filament-meta::table-columns.value')
+                    ->view('filament-meta::table-columns.value'),
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make()
+                Tables\Actions\CreateAction::make(),
             ])
             ->filters([
 
