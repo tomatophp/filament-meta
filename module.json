@@ -14,14 +14,14 @@
     ],
     "files": [],
     "title": {
-        "ar": "Filament meta",
-        "en": "Filament meta",
-        "gr": "Filament meta",
-        "sp": "Filament meta"
+        "ar": "Meta Manager",
+        "en": "Meta Manager",
+        "gr": "Meta Manager",
+        "sp": "Meta Manager"
     },
     "color": "#cc1448",
     "icon": "heroicon-c-users",
-    "placeholder": "https://raw.githubusercontent.com/tomatophp/filament-meta/master/art/screenshot.jpg",
+    "placeholder": "https://raw.githubusercontent.com/tomatophp/filament-meta/master/art/3x1io-tomato-meta.jpg",
     "type": "plugin",
     "version": "v1.0.0",
     "github" : "https://github.com/tomatophp/filament-meta",
