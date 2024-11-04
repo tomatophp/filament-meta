@@ -1,4 +1,4 @@
-![Screenshot](https://raw.githubusercontent.com/tomatophp/filament-meta/master/art/3x1io-tomato-meta.jpg)
+![Screenshot](https://raw.githubusercontent.com/tomatophp/filament-meta/master/arts/3x1io-tomato-meta.jpg)
 
 # Filament Meta Manager
 
