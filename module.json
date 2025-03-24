@@ -21,9 +21,9 @@
     },
     "color": "#cc1448",
     "icon": "heroicon-c-users",
-    "placeholder": "https://raw.githubusercontent.com/tomatophp/filament-meta/master/art/3x1io-tomato-meta.jpg",
+    "placeholder": "https://raw.githubusercontent.com/tomatophp/filament-meta/master/arts/3x1io-tomato-meta.jpg",
     "type": "plugin",
-    "version": "v1.0.0",
+    "version": "v1.0.1",
     "github" : "https://github.com/tomatophp/filament-meta",
     "docs" : "https://github.com/tomatophp/filament-meta"
 }
