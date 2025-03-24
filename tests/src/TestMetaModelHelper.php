@@ -92,7 +92,6 @@ it('can meta accept type', function () {
     ]);
 });
 
-
 it('can meta accept date', function () {
     $user = User::factory()->create();
     $date = now()->toDateString();
@@ -140,12 +139,11 @@ it('can meta accept response', function () {
     ]);
 });
 
-
 it('can use meta() fn', function () {
     meta('key', 'new');
 
     assertDatabaseHas(Meta::class, [
         'key' => 'key',
-        'key_value' => json_decode('new')
+        'key_value' => json_decode('new'),
     ]);
 });

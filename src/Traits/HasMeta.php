@@ -15,31 +15,29 @@ trait HasMeta
         string $key,
         mixed $value = null,
         string $type = 'meta',
-        string $date=null,
-        string $time=null,
-        string $response='ok',
-    ): mixed
-    {
+        ?string $date = null,
+        ?string $time = null,
+        string $response = 'ok',
+    ): mixed {
         if ($value !== null) {
             if ($value === 'null') {
                 return $this->modelMeta()->updateOrCreate(['key' => $key], ['value' => null, 'key_value' => null]);
             } else {
-                if($type === 'key-value'){
+                if ($type === 'key-value') {
                     return $this->modelMeta()->updateOrCreate(['key' => $key], [
                         'value' => null,
                         'key_value' => $value,
                         'type' => $type,
-                        'date' => $date??now()->toDateString(),
-                        'time' => $time??now()->toTimeString(),
+                        'date' => $date ?? now()->toDateString(),
+                        'time' => $time ?? now()->toTimeString(),
                         'response' => $response,
                     ]);
-                }
-                else {
+                } else {
                     return $this->modelMeta()->updateOrCreate(['key' => $key], [
                         'value' => $value,
                         'type' => $type,
-                        'date' => $date??now()->toDateString(),
-                        'time' => $time??now()->toTimeString(),
+                        'date' => $date ?? now()->toDateString(),
+                        'time' => $time ?? now()->toTimeString(),
                         'response' => $response,
                     ]);
                 }
@@ -47,19 +45,18 @@ trait HasMeta
         } else {
             $meta = $this->modelMeta()->where('key', $key)->first();
             if ($meta) {
-                if($type === 'key-value'){
+                if ($type === 'key-value') {
                     return $meta->key_value;
-                }
-                else {
+                } else {
                     return $meta->value;
                 }
             } else {
-                if(config('filament-meta.create')){
+                if (config('filament-meta.create')) {
                     return $this->modelMeta()->updateOrCreate(['key' => $key], [
                         'value' => null,
                         'type' => $type,
-                        'date' => $date??now()->toDateString(),
-                        'time' => $time??now()->toTimeString(),
+                        'date' => $date ?? now()->toDateString(),
+                        'time' => $time ?? now()->toTimeString(),
                         'response' => $response,
                     ]);
                 }

@@ -12,40 +12,40 @@ class FilamentMetaServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        //Register generate command
+        // Register generate command
         $this->commands([
             \TomatoPHP\FilamentMeta\Console\FilamentMetaInstall::class,
         ]);
 
-        //Register Config file
-        $this->mergeConfigFrom(__DIR__.'/../config/filament-meta.php', 'filament-meta');
+        // Register Config file
+        $this->mergeConfigFrom(__DIR__ . '/../config/filament-meta.php', 'filament-meta');
 
-        //Publish Config
+        // Publish Config
         $this->publishes([
-            __DIR__.'/../config/filament-meta.php' => config_path('filament-meta.php'),
+            __DIR__ . '/../config/filament-meta.php' => config_path('filament-meta.php'),
         ], 'filament-meta-config');
 
-        //Register Migrations
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        // Register Migrations
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
-        //Publish Migrations
+        // Publish Migrations
         $this->publishes([
-            __DIR__.'/../database/migrations' => database_path('migrations'),
+            __DIR__ . '/../database/migrations' => database_path('migrations'),
         ], 'filament-meta-migrations');
-        //Register views
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'filament-meta');
+        // Register views
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'filament-meta');
 
-        //Publish Views
+        // Publish Views
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/filament-meta'),
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/filament-meta'),
         ], 'filament-meta-views');
 
-        //Register Langs
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'filament-meta');
+        // Register Langs
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'filament-meta');
 
-        //Publish Lang
+        // Publish Lang
         $this->publishes([
-            __DIR__.'/../resources/lang' => base_path('lang/vendor/filament-meta'),
+            __DIR__ . '/../resources/lang' => base_path('lang/vendor/filament-meta'),
         ], 'filament-meta-lang');
 
         Livewire::component('tomato-p-h-p.filament-meta.filament.relation-manager.meta-relation-manage', MetaRelationManager::class);
@@ -53,6 +53,6 @@ class FilamentMetaServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        //you boot methods here
+        // you boot methods here
     }
 }
