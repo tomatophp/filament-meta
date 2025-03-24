@@ -1,17 +1,7 @@
 <?php
 
-namespace TomatoPHP\FilamentMeta\Traits;
-
-use Illuminate\Database\Eloquent\Relations\MorphMany;
-
-trait HasMeta
-{
-    public function modelMeta(): MorphMany
-    {
-        return $this->morphMany('TomatoPHP\FilamentMeta\Models\Meta', 'model');
-    }
-
-    public function meta(
+if (! function_exists('meta')) {
+    function meta(
         string $key,
         mixed $value = null,
         string $type = 'meta',
@@ -22,10 +12,10 @@ trait HasMeta
     {
         if ($value !== null) {
             if ($value === 'null') {
-                return $this->modelMeta()->updateOrCreate(['key' => $key], ['value' => null, 'key_value' => null]);
+                return \TomatoPHP\FilamentMeta\Models\Meta::query()->updateOrCreate(['key' => $key], ['value' => null, 'key_value' => null]);
             } else {
                 if($type === 'key-value'){
-                    return $this->modelMeta()->updateOrCreate(['key' => $key], [
+                    return \TomatoPHP\FilamentMeta\Models\Meta::query()->updateOrCreate(['key' => $key], [
                         'value' => null,
                         'key_value' => $value,
                         'type' => $type,
@@ -35,7 +25,7 @@ trait HasMeta
                     ]);
                 }
                 else {
-                    return $this->modelMeta()->updateOrCreate(['key' => $key], [
+                    return \TomatoPHP\FilamentMeta\Models\Meta::query()->updateOrCreate(['key' => $key], [
                         'value' => $value,
                         'type' => $type,
                         'date' => $date??now()->toDateString(),
@@ -45,7 +35,7 @@ trait HasMeta
                 }
             }
         } else {
-            $meta = $this->modelMeta()->where('key', $key)->first();
+            $meta = \TomatoPHP\FilamentMeta\Models\Meta::query()->where('key', $key)->first();
             if ($meta) {
                 if($type === 'key-value'){
                     return $meta->key_value;
@@ -53,13 +43,14 @@ trait HasMeta
                 else {
                     return $meta->value;
                 }
+
             } else {
-                if(config('filament-meta.create')){
-                    return $this->modelMeta()->updateOrCreate(['key' => $key], [
+                if(config('filament-meta.create')) {
+                    return \TomatoPHP\FilamentMeta\Models\Meta::query()->updateOrCreate(['key' => $key], [
                         'value' => null,
                         'type' => $type,
-                        'date' => $date??now()->toDateString(),
-                        'time' => $time??now()->toTimeString(),
+                        'date' => $date ?? now()->toDateString(),
+                        'time' => $time ?? now()->toTimeString(),
                         'response' => $response,
                     ]);
                 }

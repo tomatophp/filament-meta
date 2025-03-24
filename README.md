@@ -66,22 +66,62 @@ if the key not exists it will create it for you, if you like to set data it's ve
 
 ```php
 $user = User::find(1);
-$user->meta('key', 'value');
+$user->meta(key: 'key',value: 'value');
 ```
 
 if you like to set data null to selected key just pass null as value
 
 ```php
 $user = User::find(1);
-$user->meta('key', 'null');
+$user->meta(key: 'key',value: 'null');
 ```
 
 the meta accepts array as value
 
 ```php
 $user = User::find(1);
-$user->meta('key', ['value' => 'value']);
+$user->meta(key:'key',value: ['value' => 'value']);
 ```
+
+you can set a type for any meta like this 
+
+```php
+$user = User::find(1);
+$user->meta(key:'key',value: ['value' => 'value'], type: 'json');
+```
+
+if you like to make the value just string without json input to be indexed you can use `key-value` type
+
+```php
+$user = User::find(1);
+$user->meta(key:'key',value: ['value' => 'value'], type: 'key-value');
+```
+
+then your data will be saved to column `key_value` not in `value` column
+
+you can make a time series of meta by set a date and time on your meta
+
+```php
+$user = User::find(1);
+$user->meta(key:'key',value: ['value' => 'value'], date: '2023-10-01', time: '12:00:00');
+```
+
+if you use the meta for api response or save form data you can have a `response` and it can be anything you like be default it's `ok`
+
+```php
+$user = User::find(1);
+$user->meta(key:'key',value: ['value' => 'value'], response: 'ok');
+```
+
+## Use Global Hepler
+
+you can use Meta without any users or models, just use this helper
+
+```php
+meta(key: 'key',value: 'value');
+```
+
+it will return the value of the key if exists, otherwise it will create it for you
 
 ## Disable Create New meta
 

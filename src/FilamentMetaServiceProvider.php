@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use TomatoPHP\FilamentMeta\Filament\RelationManager\MetaRelationManager;
 
+require_once __DIR__ . '/helpers.php';
+
 class FilamentMetaServiceProvider extends ServiceProvider
 {
     public function register(): void

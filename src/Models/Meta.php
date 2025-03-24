@@ -2,8 +2,7 @@
 
 namespace TomatoPHP\FilamentMeta\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedModel;
-use GeneaLabs\LaravelModelCaching\Traits\Cachable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
@@ -17,12 +16,8 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @property string $created_at
  * @property string $updated_at
  */
-class Meta extends CachedModel
+class Meta extends Model
 {
-    use Cachable;
-
-    protected $cachePrefix = 'tomato_meta_';
-
     /**
      * @var array
      */
@@ -33,6 +28,10 @@ class Meta extends CachedModel
         'model_type',
         'key',
         'value',
+        'key_value',
+        'date',
+        'time',
+        'response',
         'created_at',
         'updated_at',
     ];
