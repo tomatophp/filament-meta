@@ -31,7 +31,7 @@ trait HasMeta
                         'date' => $date ?? now()->toDateString(),
                         'time' => $time ?? now()->toTimeString(),
                         'response' => $response,
-                    ]);
+                    ])->key_value;
                 } else {
                     return $this->modelMeta()->updateOrCreate(['key' => $key], [
                         'value' => $value,
@@ -39,7 +39,7 @@ trait HasMeta
                         'date' => $date ?? now()->toDateString(),
                         'time' => $time ?? now()->toTimeString(),
                         'response' => $response,
-                    ]);
+                    ])->value;
                 }
             }
         } else {
@@ -52,13 +52,24 @@ trait HasMeta
                 }
             } else {
                 if (config('filament-meta.create')) {
-                    return $this->modelMeta()->updateOrCreate(['key' => $key], [
-                        'value' => null,
-                        'type' => $type,
-                        'date' => $date ?? now()->toDateString(),
-                        'time' => $time ?? now()->toTimeString(),
-                        'response' => $response,
-                    ]);
+                    if ($type === 'key-value') {
+                        return $this->modelMeta()->updateOrCreate(['key' => $key], [
+                            'value' => null,
+                            'type' => $type,
+                            'date' => $date ?? now()->toDateString(),
+                            'time' => $time ?? now()->toTimeString(),
+                            'response' => $response,
+                        ])->key_value;
+                    } else {
+                        return $this->modelMeta()->updateOrCreate(['key' => $key], [
+                            'value' => null,
+                            'type' => $type,
+                            'date' => $date ?? now()->toDateString(),
+                            'time' => $time ?? now()->toTimeString(),
+                            'response' => $response,
+                        ])->value;
+                    }
+
                 }
             }
         }
