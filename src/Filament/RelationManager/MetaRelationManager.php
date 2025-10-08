@@ -2,11 +2,11 @@
 
 namespace TomatoPHP\FilamentMeta\Filament\RelationManager;
 
+use Filament\Actions;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Schemas\Schema;
 use Filament\Tables;
-use Filament\Tables\Actions\CreateAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,7 +19,7 @@ class MetaRelationManager extends RelationManager
         return trans('filament-meta::messages.label');
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $form): Schema
     {
         return $form->schema([
             Forms\Components\TextInput::make('key')
@@ -35,7 +35,7 @@ class MetaRelationManager extends RelationManager
     {
         return $table
             ->headerActions(config('filament-meta.create') ? [
-                CreateAction::make(),
+                Actions\CreateAction::make(),
             ] : [])
             ->columns([
                 Tables\Columns\TextColumn::make('key')
@@ -45,20 +45,17 @@ class MetaRelationManager extends RelationManager
                     ->label(trans('filament-meta::messages.columns.value'))
                     ->view('filament-meta::table-columns.value'),
             ])
-            ->headerActions([
-                Tables\Actions\CreateAction::make(),
-            ])
             ->filters([
 
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+            ->recordActions([
+                Actions\ViewAction::make(),
+                Actions\EditAction::make(),
+                Actions\DeleteAction::make(),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                Actions\BulkActionGroup::make([
+                    Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }

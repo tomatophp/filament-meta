@@ -9,6 +9,7 @@ use Filament\FilamentServiceProvider;
 use Filament\Forms\FormsServiceProvider;
 use Filament\Infolists\InfolistsServiceProvider;
 use Filament\Notifications\NotificationsServiceProvider;
+use Filament\Schemas\SchemasServiceProvider;
 use Filament\Support\SupportServiceProvider;
 use Filament\Tables\TablesServiceProvider;
 use Filament\Widgets\WidgetsServiceProvider;
@@ -34,7 +35,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function getPackageProviders($app): array
     {
-        return [
+        $provider = [
             ActionsServiceProvider::class,
             BladeCaptureDirectiveServiceProvider::class,
             BladeHeroiconsServiceProvider::class,
@@ -46,10 +47,15 @@ abstract class TestCase extends BaseTestCase
             NotificationsServiceProvider::class,
             SupportServiceProvider::class,
             TablesServiceProvider::class,
+            SchemasServiceProvider::class,
             WidgetsServiceProvider::class,
             FilamentMetaServiceProvider::class,
             AdminPanelProvider::class,
         ];
+
+        sort($provider);
+
+        return $provider;
     }
 
     protected function defineDatabaseMigrations(): void
