@@ -19,9 +19,9 @@ class MetaRelationManager extends RelationManager
         return trans('filament-meta::messages.label');
     }
 
-    public function form(Schema $form): Schema
+    public function form(Schema $schema): Schema
     {
-        return $form->schema([
+        return $schema->components([
             Forms\Components\TextInput::make('key')
                 ->label(trans('filament-meta::messages.columns.key'))
                 ->required()

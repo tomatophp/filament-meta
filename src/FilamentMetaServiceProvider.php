@@ -4,6 +4,7 @@ namespace TomatoPHP\FilamentMeta;
 
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use TomatoPHP\FilamentMeta\Console\FilamentMetaInstall;
 use TomatoPHP\FilamentMeta\Filament\RelationManager\MetaRelationManager;
 
 require_once __DIR__ . '/helpers.php';
@@ -14,7 +15,7 @@ class FilamentMetaServiceProvider extends ServiceProvider
     {
         // Register generate command
         $this->commands([
-            \TomatoPHP\FilamentMeta\Console\FilamentMetaInstall::class,
+            FilamentMetaInstall::class,
         ]);
 
         // Register Config file

@@ -73,5 +73,7 @@ trait HasMeta
                 }
             }
         }
+
+        return null;
     }
 }

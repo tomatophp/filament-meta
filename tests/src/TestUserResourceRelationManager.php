@@ -1,5 +1,6 @@
 <?php
 
+use TomatoPHP\FilamentMeta\Filament\RelationManager\MetaRelationManager;
 use TomatoPHP\FilamentMeta\Tests\Models\User;
 use TomatoPHP\FilamentMeta\Tests\Resources\UserResource;
 
@@ -24,7 +25,7 @@ it('can render edit user resource', function () {
 it('can render relation manager', function () {
     $user = User::factory()->create();
 
-    livewire(\TomatoPHP\FilamentMeta\Filament\RelationManager\MetaRelationManager::class, [
+    livewire(MetaRelationManager::class, [
         'ownerRecord' => $user,
         'pageClass' => UserResource\Pages\EditUser::class,
     ])->assertSuccessful();
@@ -34,7 +35,7 @@ it('can list meta', function () {
     $user = User::factory()->create();
     $user->meta('test', 'welcome');
 
-    livewire(\TomatoPHP\FilamentMeta\Filament\RelationManager\MetaRelationManager::class, [
+    livewire(MetaRelationManager::class, [
         'ownerRecord' => $user,
         'pageClass' => UserResource\Pages\EditUser::class,
     ])->assertCanSeeTableRecords($user->modelMeta);

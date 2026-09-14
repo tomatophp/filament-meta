@@ -14,13 +14,22 @@ Convert any model on your app to pluggable model using Meta and get ready to use
 ## Screenshots
 
 
-![Relation Manager](https://raw.githubusercontent.com/tomatophp/filament-meta/master/arts/relation-manager.png)
-![Create](https://raw.githubusercontent.com/tomatophp/filament-meta/master/arts/create.png)
-![Edit](https://raw.githubusercontent.com/tomatophp/filament-meta/master/arts/edit.png)
+![Relation Manager](https://raw.githubusercontent.com/tomatophp/filament-meta/master/arts/relation-manager-light.png)
+![Relation Manager Dark](https://raw.githubusercontent.com/tomatophp/filament-meta/master/arts/relation-manager-dark.png)
+![Edit Page](https://raw.githubusercontent.com/tomatophp/filament-meta/master/arts/edit-page-light.png)
+![Edit Page Dark](https://raw.githubusercontent.com/tomatophp/filament-meta/master/arts/edit-page-dark.png)
+
+## Compatibility
+
+| Package version | Filament | Laravel    | PHP  |
+|-----------------|----------|------------|------|
+| 5.x             | 5.x      | 12.x, 13.x | 8.2+ |
+| 4.x             | 4.x      | 11.x, 12.x | 8.2+ |
+
 ## Installation
 
 ```bash
-composer require tomatophp/filament-meta
+composer require tomatophp/filament-meta:^5.0
 ```
 after install your package please run this command
 
@@ -31,7 +40,7 @@ php artisan filament-meta:install
 on your model you want to use meta on it, just add this trait
 
 ```php
-use Tomatophp\FilamentMeta\Traits\HasMeta;
+use TomatoPHP\FilamentMeta\Traits\HasMeta;
 
 class  User extends Model
 {
@@ -43,7 +52,7 @@ now on your Resource you can add meta relation manager like this
 
 ```php
 
-use Tomatophp\FilamentMeta\Filament\RelationManager\MetaRelationManager;
+use TomatoPHP\FilamentMeta\Filament\RelationManager\MetaRelationManager;
 
 public static function getRelations(): array
 {
