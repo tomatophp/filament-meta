@@ -2,6 +2,12 @@
     "name": "tomatophp/filament-meta",
     "type": "library",
     "description": "Convert any model on your app to pluggable model using Meta and get ready to use relation manager on FilamentPHP panel",
+    "homepage": "https://tomatophp.com/en/plugins/filament-meta",
+    "support": {
+        "issues": "https://github.com/tomatophp/filament-meta/issues",
+        "source": "https://github.com/tomatophp/filament-meta",
+        "docs": "https://tomatophp.com/en/plugins/filament-meta"
+    },
     "keywords": [
         "php",
         "laravel",
